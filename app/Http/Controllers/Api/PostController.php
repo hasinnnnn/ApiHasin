@@ -15,7 +15,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $data = Post::orderBy('created_at', 'desc')->get();
+        $data = Post::orderBy('created_at', 'desc')->paginate(15);
         return response()->json([
             'status' => true,
             'message' => 'Data ditemukan',
